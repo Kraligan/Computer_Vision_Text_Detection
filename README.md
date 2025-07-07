@@ -1,2 +1,11 @@
-# Computer_Vision_Text_Detection
-Text Detection and OCR Comparison with Tesseract &amp; EasyOCR  This project explores Optical Character Recognition (OCR) using two popular libraries: Tesseract and EasyOCR.
+# Text Detection and OCR Comparison with Tesseract & EasyOCR
+
+This project explores Optical Character Recognition (OCR) using two popular libraries: Tesseract and EasyOCR.\
+The goal is to compare their performance on real-world images with various text styles and qualities.\
+A simple Streamlit web app is included to upload an image and visualize the detected text.\
+
+Main Features:
+- Image preprocessing for OCR enhancement (grayscale, thresholding, etc.)
+- Side-by-side comparison of Tesseract and EasyOCR outputs
+- Random image sampling for testing
+- Web interface with Streamlit for easy testing and demo
