@@ -43,14 +43,15 @@ def set_background(image_path):
         color: black !important;
     }}
 
-    button {{
-        background-color: #f0f0f0 !important;
+    [data-testid="baseButton-primary"] {{
+        background-color: white !important;
         color: black !important;
+        border: 1px solid black !important;
     }}
-    
-    button > div > span {{
+
+    [data-testid="baseButton-primary"]:hover {{
+        background-color: #e0e0e0 !important;
         color: black !important;
-        font-weight: bold;
     }}
     </style>
     """
