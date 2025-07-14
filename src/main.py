@@ -44,16 +44,31 @@ if uploaded_file is not None:
         with st.spinner("Running OCR..."):
             results = reader.readtext(img_array)
 
-            if len(results)>0 :
+            if len(results) > 0:
                 annotated_img = img_array.copy()
+                texts_detected = []
+
                 for bbox, text, conf in results:
-                    LOGGER.info(results[0])
+                    LOGGER.info(f"Detected: {text} ({conf:.2f})")
+                    texts_detected.append(text.strip())
 
                     pt1 = tuple(map(int, bbox[0]))
                     pt2 = tuple(map(int, bbox[2]))
-                    cv2.rectangle(annotated_img, pt1, pt2, (0, 255, 0), 2)
-                    cv2.putText(annotated_img, text, (pt1[0], pt1[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 0, 0), 2)
-                
-                st.subheader("Image with detected text: ")
-                st.image(annotated_img, channels="RGB", use_container_width=True)
+                    cv2.rectangle(annotated_img, pt1, pt2, (0, 255, 0), 1)
 
+                line_height = 30
+                n_lines = len(texts_detected)
+                extra_height = line_height * n_lines + 20  # padding
+
+                h, w, _ = annotated_img.shape
+                final_img = np.ones((h + extra_height, w, 3), dtype=np.uint8) * 255
+                final_img[0:h, 0:w] = annotated_img
+
+                y_offset = h + 20
+                for i, line in enumerate(texts_detected):
+                    cv2.putText(final_img, line, (10, y_offset + i * line_height),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 1)
+
+                # Affichage final
+                st.subheader("Image with detected text:")
+                st.image(final_img, channels="RGB", use_container_width=True)
