@@ -9,3 +9,16 @@ Main Features:
 - Side-by-side comparison of Tesseract and EasyOCR outputs
 - Random image sampling for testing
 - Web interface with Streamlit for easy testing and demo
+
+## Key Learnings
+
+- EasyOCR significantly outperforms Tesseract on noisy or stylized text
+- Preprocessing (contrast, resizing, thresholding) improves OCR accuracy
+- Streamlit enables rapid prototyping and demo-ready UI
+- Limitations of Tesseract become visible with fonts, background noise, and rotated text
+
+![Demo](assets/output.mp4)
+
+## Author
+
+[Rémi Nollet](https://www.linkedin.com/in/remi-nollet/) - Freelance Computer Vision Engineer
