@@ -26,7 +26,7 @@ def set_background(image_path):
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);  /* filtre noir transparent */
+        background-color: rgba(0, 0, 0, 0.65);  /* filtre noir transparent */
         z-index: 0;
     }}
 
@@ -36,20 +36,21 @@ def set_background(image_path):
         color: white;
     }}
 
-    h1, h2, h3, h4, h5, h6, p, div, span {{
+    h1, h2, h3, h4, h5, h6, p, div {{
         color: white !important;
     }}
-
-    /* Style du bouton Streamlit */
-    button[kind="primary"] {{
-        background-color: white !important;
+    span {{
         color: black !important;
-        border: 1px solid black !important;
     }}
 
-    button[kind="primary"]:hover {{
+    button {{
         background-color: #f0f0f0 !important;
         color: black !important;
+    }}
+    
+    button > div > span {{
+        color: black !important;
+        font-weight: bold;
     }}
     </style>
     """
